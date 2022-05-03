@@ -1,0 +1,133 @@
+
+<div class="row">
+  <div class="grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Form Validation</h4>
+        <form  (ngSubmit)="onSubmit()" id="signupForm">
+                    <div class="mb-3">
+            <label for="name" class="form-label">Nom de l'enfant</label>
+            <input [(ngModel)]="enfant.nom" id="nom" class="form-control" name="nom" type="text">
+          </div>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">Age de l'enfant</label>
+            <input [(ngModel)]="enfant.age" id="age" class="form-control" name="age" type="number">
+          </div>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">Date de naissance de l'enfant</label>
+            <input [(ngModel)]="enfant.dateN" id="dateN" class="form-control" name="dateN" type="date">
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Maladie de l'enfant</label>
+            <input [(ngModel)]="enfant.maladie" id="maladie" class="form-control" name="maladie" type="text">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Sexe</label>
+            <!-- <div>
+              <div class="form-check form-check-inline">
+                <input [(ngModel)]="enfant.sexe" type="radio" class="form-check-input" name="gender_radio" id="gender1">
+                <label class="form-check-label" for="gender1">
+                  Garçon
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="gender_radio" id="gender2">
+                <label class="form-check-label" for="gender2">
+                  Fille
+                </label>
+              </div>
+
+            </div> -->
+
+                  <div class="form-check">
+                    <input [(ngModel)]="enfant.sexe" class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Garçon" checked>
+                    <label  class="form-check-label" for="gridRadios1">
+                      Garçon
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input [(ngModel)]="enfant.sexe" class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Fille">
+                    <label class="form-check-label" for="gridRadios2">
+                      Fille
+                    </label>
+                  </div>
+                  </div>
+
+           <!-- <div class="mb-3">
+            <label for="name" class="form-label">Image de l'enfant</label>
+            <input [(ngModel)]="enfant.image" (change)="onSelectFile($event)" id="image" class="form-control" name="image" type="file">
+            <img [src]="imgURL" height="200" *ngIf="imgURL">
+          </div> -->
+          <div class="mb-3">
+            <label for="name" class="form-label">Taille de l'enfant</label>
+            <input [(ngModel)]="enfant.taille" id="taille" class="form-control" name="taille" type=number step=any>
+          </div>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">Image de l'enfant</label>
+                <input type="file" [(ngModel)]="enfant.imageUrl" >
+        </div>
+
+                <!-- <div class="form-group">
+            <input type="file" (change)="onImageUpload($event)">
+            <input type="button" (click)="imageUploadAction()" value="Upload Image" class="btn1">
+        </div>
+
+
+        <div>
+            <output *ngIf=successResponse class="success"><b>{{successResponse}}</b></output>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <input type="text" id="image" placeholder="Search Image" [(ngModel)]="image" name="image" />
+            <input type="button" (click)="viewImage()" value="View Image" class="btn1">
+
+        </div>
+
+        <div *ngIf=dbImage>
+            <img [src]="dbImage">
+        </div> -->
+        <!-- <div class="panel-body">
+          <strong>Select files from your computer</strong>
+          <div *ngIf="fileStatus.status==='progress'">
+            <div class="progress">
+              <div [style.width.%]="fileStatus.percent" class="progress-bar progress-bar-animated bg-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                  {{ fileStatus.requestType }} {{ fileStatus.percent }}
+                </div>
+            </div>
+          </div>
+          </div>
+        <div>
+          <input type="file" (change)="onUploadFiles(($any($event.target).files))" name="files" multiple class="form-control" />
+        </div> -->
+
+        <input class="btn btn-primary" type="submit" value="Ajouter">
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<h3>Image Uploading Module</h3>
+
+
+<div>
+    <input type="file" (change)="onFileChanged($event)">
+
+    <img [src]="imgURL" height="200" *ngIf="imgURL">
+</div>
+
+<input type="button" (click)="onUpload()" value="upload">
+
+<hr />
+
+Received Image:
+
+{{ receivedImageData['pic'] | json}}
+<img [src]="convertedImage" >

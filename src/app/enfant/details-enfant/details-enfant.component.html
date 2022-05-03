@@ -1,0 +1,63 @@
+<!-- <div>
+  <div>
+    <label><b>Nom : </b></label> {{enfant.nom}}
+  </div>
+</div>
+<div>
+  <div>
+    <label><b>Age : </b></label> {{enfant.age}}
+  </div>
+</div>
+<div>
+  <div>
+    <label><b>Date de naissance : </b></label> {{enfant.dateN | date: 'fullDate'}}
+  </div>
+</div>
+<div>
+  <div>
+    <label><b>Sexe : </b></label> {{enfant.sexe}}
+  </div>
+</div>
+<div>
+  <div>
+    <label><b>Taille de l'enfant : </b></label> {{enfant.taille}}
+  </div>
+</div>
+<div>
+  <div>
+    <label><b>Maladie de l'enfant : </b></label> {{enfant.maladie}}
+  </div>
+</div> -->
+
+<h3>Details</h3>
+<div class="container">
+  <div class="row list-project">
+      <div class="col-md-7">
+          <img src="https://via.placeholder.com/400x300/FFB6C1/000000" alt="project-image" class="rounded tablet-top">
+      </div>
+      <!-- / column -->
+      <div class="col-md-5">
+          <div class="project-info-box mt-0">
+              <h5>Description</h5>
+              <p>Voici tous les informations relatives à l'enfant <br> Veuillez trouvez ci-joint la description detaillée des enfants </p>
+
+          </div>
+          <!-- / project-info-box -->
+
+          <div class="project-info-box mb-10">
+              <p><b>Nom et prénom : </b> {{enfant.nom}}</p>
+              <p><b>Age : </b> {{enfant.age}}</p>
+              <p><b>Date de naissance : </b>  {{enfant.dateN | date: 'fullDate'}}</p>
+              <p><b>Sexe de l'enfant : </b>{{enfant.sexe}}</p>
+              <p><b>Taille de l'enfant : </b> {{enfant.taille}}</p>
+              <p><b>Maladie de l'enfant : </b> {{enfant.maladie}}</p>
+          </div>
+          <!-- / project-info-box -->
+
+          <a href="#" class="btn btn-primary d-block">Retour</a>
+      </div>
+      <!-- / column -->
+  </div>
+  <!-- / row list-project -->
+  <!-- / row list-project -->
+</div>

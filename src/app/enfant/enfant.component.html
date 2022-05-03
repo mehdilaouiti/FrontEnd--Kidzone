@@ -1,0 +1,204 @@
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <div id="content">
+
+
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Gestion des enfants</h1>
+                  <!-- Topbar Search -->
+                  <form class="d-none d-sm-inline-block form-inline navbar-search">
+                      <div class="input-group">
+                          <input type="text" class="form-control bg-light border-0 small" [(ngModel)]="searchValue" placeholder="Recherche..."
+                              aria-label="Search" aria-describedby="basic-addon2" name="searchValue">
+                          <div class="input-group-append">
+                              <button class="btn btn-primary" type="button">
+                                  <i class="fas fa-search fa-sm"></i>
+                              </button>
+                          </div>
+                      </div>
+                  </form>
+                     <a href="http://localhost:8070/enfant/export/excel" style="margin-left: 42%;" class="col-1 btn d-sm-inline-block btn-sm btn-success shadow-sm">
+                      <i class="fas fa-file-excel text-white"></i> Excel</a>
+                      <a href="http://localhost:8070/enfant/export/pdf" class="col-1 btn d-sm-inline-block btn-sm btn-danger shadow-sm">
+                        <i class="fas fa-file-pdf text-white"></i> PDF</a>
+                      <a href="/AddEnfant" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                      <i class="fas fa-plus fa-sm text-white-50"></i> Ajouter enfant</a>
+                </div>
+
+
+                <div class="row justify-content-center">
+
+                  <!-- Earnings (Monthly) Card Example -->
+                  <div class="col-xl-3 col-md-6 mb-4">
+                      <div class="card border-left-success shadow h-100 py-2">
+                          <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+                                  <div class="col mr-2">
+                                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                          Nombre d'enfants total</div>
+                                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{nbEnfant}}</div>
+                                  </div>
+                                  <div class="col-auto">
+                                      <i class="fas fa-child fa-2x text-gray-300"></i>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      </div>
+
+                  <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-danger shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                            Nombre des filles total</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{nbF}}</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-venus fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+
+                  <div class="col-xl-3 col-md-6 mb-4">
+                          <div class="card border-left-primary shadow h-100 py-2">
+                              <div class="card-body">
+                                  <div class="row no-gutters align-items-center">
+                                      <div class="col mr-2">
+                                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                              Nombre des garçons total</div>
+                                          <div class="h5 mb-0 font-weight-bold text-gray-800">{{nbG}}</div>
+                                      </div>
+                                      <div class="col-auto">
+                                          <i class="fas fa-mars fa-2x text-gray-300"></i>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          </div>
+                  </div>
+
+                  <!-- Main Content -->
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th (click)="sort('nom')">Nom&nbsp;<i class="fa fa-sort"></i></th>
+                                            <th (click)="sort('age')">Age&nbsp;<i class="fa fa-sort"></i></th>
+                                            <th (click)="sort('age')">Age de l'enfant</th>
+                                            <th (click)="sort('Sexe')">Sexe</th>
+                                            <th>Image</th>
+                                            <th (click)="sort('taille')">Taille</th>
+
+                                            <!-- <th *ngFor="let head of headElements; let i = index" aria-controls="tableSortExample" scope="col" [mdbTableSort]="elements" [sortBy]="headElements[i]">{{ head | titlecase }}
+                                              <mdb-icon fas icon="sort"></mdb-icon>
+                                            </th> -->
+                                            <th>Actions</th>
+                                          </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let enfant of enfants | orderBy:'key' | filter : searchValue | paginate:{itemsPerPage:5,currentPage:p} ;let i = index">
+                                            <td>{{enfant.nom}}</td>
+                                            <td>{{enfant.age}}</td>
+                                            <td>{{enfant.dateN | date: 'fullDate'}}</td>
+                                            <td>{{enfant.sexe}}</td>
+                                            <td><img [src]="enfant.imageUrl" /></td>
+                                            <td>{{enfant.taille}}</td>
+                                            <td>
+                                              <a (click) = "updateEnfant(enfant.id)" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                                class="fas fa-plus fa-sm text-white-50"></i>Modifier</a>
+
+                                              <a onclick="myFunction()" (click) = "deleteEnfant(enfant.id)" class="btn btn-danger">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                        </span>
+                                        <span class="text">Supprimer</span>
+                                    </a>
+
+
+                                    <a (click) = "getEnfantId(enfant.id)" class="d-none d-sm-inline-block btn btn-sm btn-Primary shadow-sm"><i
+                                      class="fas fa-plus fa-sm text-white-50"></i>Afficher</a>
+
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                    <!-- <ngb-pagination [collectionSize]="totalItems" [pageSize]="itemsPerPage" [(page)]="page" [maxSize]="7" [rotate]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+                                    <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="items.length"></ngb-pagination>
+                              -->
+                              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                            </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+<!-- <script>
+  function myFunction() {
+    let text;
+    if (window.confirm("Press a button!") == true) {
+      text = "You pressed OK!";
+    } else {
+      text = "You canceled!";
+    }
+
+  }
+  </script> -->

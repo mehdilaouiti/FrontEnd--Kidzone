@@ -1,0 +1,73 @@
+
+<div class="row">
+  <div class="grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Form Validation</h4>
+        <form  (ngSubmit)="onSubmit()" enctype="multipart/form-data" id="signupForm">
+                    <div class="mb-3">
+            <label for="name" class="form-label">Nom de l'enfant</label>
+            <input [(ngModel)]="enfant.nom" id="nom" class="form-control" name="nom" type="text">
+          </div>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">Age de l'enfant</label>
+            <input [(ngModel)]="enfant.age" id="age" class="form-control" name="age" type="number">
+          </div>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">Date de naissance de l'enfant</label>
+            <input [(ngModel)]="enfant.dateN" id="dateN" class="form-control" name="dateN" type="date">
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Maladie de l'enfant</label>
+            <input [(ngModel)]="enfant.maladie" id="maladie" class="form-control" name="maladie" type="text">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Sexe</label>
+            <!-- <div>
+              <div class="form-check form-check-inline">
+                <input [(ngModel)]="enfant.sexe" type="radio" class="form-check-input" name="gender_radio" id="gender1">
+                <label class="form-check-label" for="gender1">
+                  Garçon
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="gender_radio" id="gender2">
+                <label class="form-check-label" for="gender2">
+                  Fille
+                </label>
+              </div>
+
+            </div> -->
+
+                  <div class="form-check">
+                    <input [(ngModel)]="enfant.sexe" class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Garçon" checked>
+                    <label  class="form-check-label" for="gridRadios1">
+                      Garçon
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input [(ngModel)]="enfant.sexe" class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Fille">
+                    <label class="form-check-label" for="gridRadios2">
+                      Fille
+                    </label>
+                  </div>
+                  </div>
+
+           <div class="mb-3">
+            <label for="name" class="form-label">Image de l'enfant</label>
+            <input [(ngModel)]="enfant.imageUrl" id="image" class="form-control" name="image" type="file">
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Taille de l'enfant</label>
+            <input [(ngModel)]="enfant.taille" id="taille" class="form-control" name="taille" type="number">
+          </div>
+
+          <input class="btn btn-primary" type="submit" value="Modifier">
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
