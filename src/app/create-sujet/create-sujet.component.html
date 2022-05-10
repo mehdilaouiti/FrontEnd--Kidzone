@@ -1,0 +1,23 @@
+
+<div class="col-md-6 offset-md-3">
+    <h3> Create Sujet </h3>
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label> Title</label>
+            <input type="text" class ="form-control" id = "firstName"
+                [(ngModel)] = "sujet.titre" name = "firstName">
+        </div>
+    
+        <div class="form-group">
+            <label> Description</label>
+            <input type="text" class ="form-control" id = "lastName"
+                [(ngModel)] = "sujet.description" name = "lastName">
+        </div>
+    
+        
+    
+        <button class = "btn btn-success" type ="submit">Submit</button>
+    
+    </form>
+    

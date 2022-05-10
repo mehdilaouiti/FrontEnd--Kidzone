@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class = "navbar-nav">
+        <li class = "nav-item">
+            <a (click) = "getforumss()" class = "btn btn-info"> Forum List</a>
+        </li>
+        <li class = "nav-item">
+         
+            <a (click) = "addforum()" class = "btn btn-info"> add Forum</a>
+           
+    </ul>
+  </nav>
+<!-- End of Sidebar -->
+<input
+type="text"
+class="form-control"
+placeholder="Search..."
+[(ngModel)]="filterTerm"
+/>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            
+            <th> Titre </th>
+            <th> Description</th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let Forums of Forums| filter: filterTerm" >
+           
+            <td> {{ Forums.titre }} </td>
+            <td> {{ Forums.description }} </td>
+            
+            
+            <td>
+                
+                <button (click) = "updateforum(Forums.id)" class = "btn btn-info"> Update</button>
+                <button (click) = "deleteforum(Forums.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button (click) = "Gosujets(Forums.id)"  class="nav-link" class = "btn btn-success" style="margin-left: 10px"> View Sujets </button>
+               
+    </tr>
+
+
+</tbody>
+
+
+
+
+
+</table>

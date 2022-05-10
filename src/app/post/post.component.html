@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mediumish - A Medium style template by WowThemes.net</title>
+<style>
+	h1 {
+  margin: 0;
+  color: #091381;
+  font-size: 3rem;
+  letter-spacing: 1px;
+  text-align: center;
+}
+p {
+  margin: 0;
+  color: #4dcff7;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  text-align: center;
+}
+span{
+	font-size: 1rem;
+	letter-spacing: 1px;
+	margin: 0;
+
+}
+</style>
+</head>
+<body>
+
+
+<div >
+    <div class="col-md-offset-2">
+        <div class=>
+		<!-- Begin Post -->
+		<div class="col-md-6 offset-md-3" style="text-align: center;">
+			<div class="mainheading">
+
+				
+				
+
+				<h1 class="posttitle" style="size: 50px;" >{{ publications.title }}</h1>
+
+			</div>
+
+			<!-- Begin Featured Image -->
+            <img  class="featured-image img-fluid" style="border: solid 1px "  src="{{publications.imagepub}}" width="800" height="800">
+		
+			<!-- End Featured Image -->
+
+			<!-- Begin Post Content -->
+			<div class="article-post">
+				<p style="size: 150%;">
+					{{ publications.publication_txt }} 
+				</p>
+				
+			</div>
+			<!-- End Post Content -->
+
+		
+			<button (click) = "Like(publications.id)" class="btn btn-outline-danger mt-3 w-100" ><i class="fas fa-heart"></i> Like</button>
+			
+		</div>
+        </div>
+        </div>
+		</div>
+		<div class="col-md-offset-2">
+			<div class="subforum">
+				<div class="subforum-icon subforum-column2 center">
+					<i style="color:red;" class="fa fa-heart"> {{ publications.likes.length }} Likes</i>
+				</div>
+				<div class="subforum-icon subforum-column2 center">
+					<i style="color: green;" class="fa fa-users"> {{ publications.comments.length }} Comments</i>
+				</div>
+				<div *ngFor = "let comment of comment">
+					
+					<div class="subforum-description subforum-column">
+						<h5><a href="#">{{ comment.comment_field }}</a></h5>
+					<a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a><a>&nbsp;</a>	<span style="color: blue;" >BY {{comment.user.nom}}</span> 
+					</div>
+					
+				</div>
+				</div>
+				</div>
+	<br><br><br><br><br><br><br><br><br><br>
+	<div class="col-md-6 offset-md-3">
+		
+		<h3 style="text-align: center;"> Add Commentaire </h3>
+		<form class="w-50 mx-auto mb-5 mt-2 user" [formGroup]="FormRec" (ngSubmit)="saveRec(FormRec)">
+			
+		  
+			
+		  
+			<div>
+			  <div class="form-group">
+				<label>Commentaire</label>
+				<input type="text" class="form-control form-control-user" formControlName="messageReclamation"  >
+			  </div>
+			  <br>
+			  <div class="alert alert-danger" *ngIf="FormRec.controls['messageReclamation'].invalid && FormRec.controls['messageReclamation'].touched">*Message Obligatoire </div>
+			</div>
+		  
+		
+			<button class="btn btn-outline-success" type="submit"  [disabled]="FormRec.invalid" > Valider</button>
+		
+		</form>
+	</div>
+	

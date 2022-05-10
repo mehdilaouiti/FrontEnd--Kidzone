@@ -1,0 +1,37 @@
+
+<table class = "table table-striped">
+    <thead>
+        <tr>
+           
+            <th> Titre </th>
+            <th> Description</th>
+            <th> CreationDate </th>
+            <th> ToTal Comments</th>
+            <th> ToTal Likes</th>
+            <th> Image</th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let publications of publications" >
+          
+            <td> {{ publications.title }} </td>
+            <td> {{ publications.publication_txt }} </td>
+            <td> {{ publications.createdAt | date: 'short'  }} </td>
+            <td> {{ publications.comments.length  }} </td>
+            <td> {{ publications.likes.length }} </td>
+            <td>   <img  class="imageRec d-block" style="border: solid 1px "  src="{{publications.imagepub}}"  width="150"></td>
+                
+              
+            <button (click) = "deleteforum(publications.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+            <button (click) = "updateforum(publications.id)" class = "btn btn-info"> Update</button>
+        </tr>
+   
+
+</tbody>
+
+
+
+
+
+</table>

@@ -1,0 +1,53 @@
+<form class="w-50 mx-auto mb-5 mt-2 user" [formGroup]="FormRec" (ngSubmit)="saveRec(FormRec)">
+ 
+    <div class="form-group" hidden>
+        <input type="text" class="form-control form-control-user" formControlName="idReclamation" >
+      </div>
+    
+      <div>
+        <div class="form-group">
+          <label>Titre Post</label>
+          <input type="text" class="form-control form-control-user" formControlName="objet"  >
+        </div>
+        <br>
+        <div class="alert alert-danger" *ngIf="FormRec.controls['objet'].invalid && FormRec.controls['objet'].touched">*Objet Obligatoire </div>
+      </div>
+    
+      <div>
+        <div class="form-group">
+          <label>Message Post</label>
+          <input type="text" class="form-control form-control-user" formControlName="messageReclamation"  >
+        </div>
+        <br>
+        <div class="alert alert-danger" *ngIf="FormRec.controls['messageReclamation'].invalid && FormRec.controls['messageReclamation'].touched">*Message Obligatoire </div>
+      </div>
+    
+    
+      <br>
+      <div class="form-group">
+        <label >choisir Image</label>
+        <input type="file"
+    
+               class="form-control" formControlName="imageReclamation"
+               accept="images/"
+    
+               (change)="uploadFiles($event)">
+        <img [src]="imgURL" height="200" *ngIf="imgURL">
+      </div>
+    
+    
+    
+    
+    
+      <button class="btn btn-outline-success" type="submit"  [disabled]="FormRec.invalid" >Valider</button>
+      &nbsp;
+      <button class="btn btn-outline-primary" type="reset" >Reset</button>
+    </form>
+    <div style="text-align: center;">
+    <webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"></webcam>
+    <button class="actionBtn" (click)="triggerSnapshot();">Take A Snapshot</button>
+    <!-- Snapshot Div where image will be shown -->
+    <div class="snapshot" *ngIf="webcamImage">
+      <h2>Take your image or get another</h2>
+      <img [src]="webcamImage.imageAsDataUrl"/>
+    </div></div>

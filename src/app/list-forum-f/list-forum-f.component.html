@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum</title>
+   
+</head>
+
+<body>
+    <header>
+        <!--NavBar Section-->
+        <div class="navbar">
+            <nav class="navigation hide" id="navigation">
+                <span class="close-icon" id="close-icon" onclick="showIconBar()"><i class="fa fa-close"></i></span>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="forums.html">Forums</a></li>
+                    <li class="nav-item"><a href="posts.html">Posts</a></li>
+                    <li class="nav-item"><a href="detail.html">Detail</a></li>
+                </ul>
+            </nav>
+            <a class="bar-icon" id="iconBar" onclick="hideIconBar()"><i class="fa fa-bars"></i></a>
+            <div class="brand">My Forum</div>
+        </div>
+        <!--SearchBox Section-->
+        <input
+  type="text"
+  class="form-control"
+  placeholder="Search..."
+  [(ngModel)]="filterTerm"
+/>
+    </header>
+    
+    <div class="container">
+        <div class="subforum">
+            <div class="subforum-title">
+                <h1>Forums</h1>
+            </div>
+            <div *ngFor = "let Forums of Forums| filter: filterTerm | paginate
+            : {
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count
+              };
+        let i = index
+      " class="subforum-row">
+                <div class="subforum-icon subforum-column center">
+                    <i class="fa fa-list"></i>
+                </div>
+                <div class="subforum-description subforum-column">
+                    <h4><a href="#">{{ Forums.titre }}</a></h4>
+                    <p>{{ Forums.description }}</p>
+                </div>
+                <div class="subforum-stats subforum-column center">
+                    <span>{{ Forums.sujets.length }}</span>  <a>&nbsp;    Sujets</a>
+                </div>
+                <div class="subforum-info subforum-column">
+                   
+                    <button (click) = "Gosujets(Forums.id)"  class="nav-link" class = "btn btn-success" style="margin-left: 10px"> View Sujets </button>
+                </div>
+            </div>
+        </div>
+        <!--More-->
+        <div class="d-flex justify-content-center">
+            <pagination-controls
+              previousLabel="Prev"
+              nextLabel="Next"
+              (pageChange)="onTableDataChange($event)"
+            >
+            </pagination-controls>
+        
+            </div>
+
+
+            <ngx-qrcode style="text-align: center;"
+  [elementType]="elementType"
+  [errorCorrectionLevel]="correctionLevel"
+  [value]="value"
+  cssClass="bshadow"></ngx-qrcode>
+  <h1 style="text-align: center;"> OR CHECK OUR FACEBOOK GROUP</h1>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=50, initial-scale=50.0">
+    
+    <title> Sujets </title>
+   
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+        <ul class = "navbar-nav">
+            
+            <li style="text-align:center" class = "nav-item">
+             
+                <a  (click) = "addsujet()" class = "btn bg-gradient-primary"> add Sujet</a>
+        </ul>
+      </nav>
+      <input
+      type="text"
+      class="form-control"
+      placeholder="Search..."
+      [(ngModel)]="filterTerm"
+    />
+<div class="container">
+    <div class="subforum">
+        <div class="subforum-title">
+            <h1>Sujets</h1>
+        </div>
+        <div *ngFor = "let sujets of sujets | filter: filterTerm" class="subforum-row">
+            <div class="subforum-icon subforum-column center">
+                <i class="fa fa-search"></i>
+            </div>
+            <div class="subforum-description subforum-column">
+                <h4><a href="#">{{ sujets.titre }}</a></h4>
+                <p>{{ sujets.description }}</p>
+               
+            </div>
+            <div class="subforum-stats subforum-column center">
+                <span>{{  sujets.dateCreation | date: 'short'}}</span>  <a>&nbsp;    </a>
+            </div>
+            <div class="subforum-info subforum-column">
+               
+                <button (click) = "GoReponses(sujets.id)"  class="nav-link" class = "btn btn-success" style="margin-left: 10px"> View Reponses </button>
+            </div>
+        </div>
+    </div>
+        <!--More-->
+        
+        
+    
+  

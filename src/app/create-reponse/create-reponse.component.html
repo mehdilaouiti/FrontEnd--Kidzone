@@ -1,0 +1,11 @@
+<div class="col-md-6 offset-md-3">
+    <h3> ADD RESPONSE </h3>
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label> MESSAGE </label>
+            <input type="text" class ="form-control" id = "firstName"
+                [(ngModel)] = "reponse.message" name = "firstName">
+        </div>
+        <button class = "btn btn-success" type ="submit">Submit</button>
+    </form>
