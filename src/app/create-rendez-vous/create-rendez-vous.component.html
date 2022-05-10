@@ -1,0 +1,23 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Add Meeting </h3>
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label> Object</label>
+            <input type="text" class ="form-control" id = "objetMeeting"
+                [(ngModel)] = "rdv.objetMeeting" name = "ojetMeeting">
+        </div>
+    
+        <div class="form-group">
+            <label> Date Meeting</label>
+            <input type="date" class ="form-control" id = "dateMeeting"
+                [(ngModel)] = "rdv.dateMeeting" name = "dateMeeting">
+        </div>
+    
+      
+    
+        <button class = "btn btn-success" type ="submit">Submit</button>
+    
+    </form>
+    </div> 
+ 

@@ -1,0 +1,54 @@
+<h2>Reclamation List</h2>
+<div class="container mt-5">
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search..."
+        [(ngModel)]="filterTerm"
+      />
+    </div>
+<table class = "table table-striped">
+    <thead>
+        
+        <tr>
+            <th> idRecmation </th>
+            <th> description </th>
+            <th> dateReclamation</th>
+            <th> etatRecalmation</th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let Reclamation of Rec | filter: filterTerm  | paginate
+        : {
+            itemsPerPage: tableSize,
+            currentPage: page,
+            totalItems: count
+          };
+    let i = index
+  "
+> 
+       
+            <td> {{ Reclamation.idRecmation }} </td>
+            <td> {{ Reclamation.description }} </td>
+            <td> {{ Reclamation.dateReclamation | date}} </td>
+            <td> {{ Reclamation.etatRecalmation }} </td>
+            <td>
+                <button (click) = "updateReclamtion(Reclamation.idRecmation)" class = "btn btn-info"> Update</button>
+                 <button (click) = "deleteReclamation(Reclamation.idRecmation)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <!--button (click) = "RendezVousDetails(RendezVous.idRdv)" class = "btn btn-info" style="margin-left: 10px"> View</button-->
+              
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="d-flex justify-content-center">
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)"
+    >
+    </pagination-controls>
+  </div>
+</div>

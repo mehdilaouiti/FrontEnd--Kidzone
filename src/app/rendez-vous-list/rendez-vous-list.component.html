@@ -1,0 +1,37 @@
+<h2>Rendez_Vous List</h2>
+<div class="container">
+    <div class="row">
+      <div class="col-md-8" id="htmlData">
+<table class = "table table-striped">
+    <thead>
+        
+        <tr>
+            <th> idRdv </th>
+            <th> Objet </th>
+            <th> dateMeeting</th>
+            <th> Actions </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let RendezVous of Rdv" >
+            <td> {{ RendezVous.idRdv }} </td>
+            <td> {{ RendezVous.objetMeeting }} </td>
+            <td> {{ RendezVous.dateMeeting | date}} </td>
+            <td>
+                <button (click) = "updateRendezVous(RendezVous.idRdv)" class = "btn btn-info"> Update</button>
+                 <button (click) = "deleteRendezVous(RendezVous.idRdv)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <!--button (click) = "RendezVousDetails(RendezVous.idRdv)" class = "btn btn-info" style="margin-left: 10px"> View</button-->
+              
+            </td>
+        </tr>
+    </tbody>
+   
+</table>
+</div>
+<div class="col-md-4 text-right">
+    <button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>
+</div>
+</div>
+</div>
+
